@@ -1,0 +1,68 @@
+﻿<Window x:Class="Connect4WPF.mainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:Connect4WPF"
+        mc:Ignorable="d"
+        Title="Connect 4 - Main Menu" Height="450" Width="600" Background="CadetBlue">
+    <Grid Height="450" Width="600" Background="Transparent">
+        <UserControl>
+            <Grid Name="ContentGrid" Margin="0,0,0,29">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="185"></ColumnDefinition>
+                    <ColumnDefinition Width="230"></ColumnDefinition>
+                    <ColumnDefinition Width="185"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"></RowDefinition>
+                    <RowDefinition Height="280"></RowDefinition>
+                    <RowDefinition Height="80"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Canvas Grid.ColumnSpan="3" Margin="128,0,129,0">
+                    <Ellipse Name="YellowPiece" Canvas.Top="15" Canvas.Left="10" Height="50" Width="50">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FF777C14" Offset="0"/>
+                                <GradientStop Color="#FFF7FF00" Offset="0.59"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                    <Image Name="MainTitle" gif:ImageBehavior.AnimatedSource="Images/Connect4MainTitle.gif" gif:ImageBehavior.AnimateInDesignMode="True"  Width="230" Height="50" Canvas.Left="60" Canvas.Top="15"></Image>
+                    <Ellipse Name="RedPiece" Canvas.Top="15" Canvas.Left="290" Height="50" Width="50">
+                        <Ellipse.Fill>
+                            <RadialGradientBrush>
+                                <GradientStop Color="#FF820000"/>
+                                <GradientStop Color="Red" Offset="0.59"/>
+                            </RadialGradientBrush>
+                        </Ellipse.Fill>
+                    </Ellipse>
+                </Canvas>
+                <Button Name="btn_Play" Grid.Column="1" Grid.Row="1" Margin="46,43,46,188" Content="PLAY" Click="Btn_Play_Click"></Button>
+                <Button Name="btn_PlayerSettings" Grid.Column="1" Grid.Row="1" Margin="46,113,46,118" Content="PLAYER SETTINGS" Click="Btn_PlayerSettings_Click" ></Button>
+                <Button Name="btn_GameSettings" Grid.Column="1" Grid.Row="1" Margin="46,183,46,48" Content="GAME SETTINGS" Click="Btn_GameSettings_Click"></Button>
+            </Grid>
+
+        </UserControl>
+        <Rectangle Name="GreyOverlay" Height="450" Width="600" Fill="Black" Opacity="0.7" Visibility="Hidden"></Rectangle>
+        <UserControl Name="playerSettingsUserControl" Focusable="True">
+
+            <Grid Name="playerSettingsGrid" Visibility="Hidden" Focusable="True">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                    <ColumnDefinition Width="300"></ColumnDefinition>
+                    <ColumnDefinition Width="150"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBox Name="tbx_player1Name" Grid.Column="1" Margin="0,142,170,285" Background="White" Text="Yellow" TextChanged="Tbx_player1Name_TextChanged"  IsHitTestVisible="True" Focusable="True" IsReadOnly="False" Foreground="Black" CaretBrush="Black"></TextBox>
+                <TextBox Name="tbx_player2Name" Grid.Column="1" Margin="170,142,0,285" Background="White" Text="Red" TextChanged="Tbx_player2Name_TextChanged"  IsHitTestVisible="True" Focusable="True" IsReadOnly="False" Foreground="Black"></TextBox>
+
+            </Grid>
+        </UserControl>
+
+    </Grid>
+
+
+</Window>
